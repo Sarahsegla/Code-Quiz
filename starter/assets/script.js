@@ -59,6 +59,8 @@ let questions = [
 
 const MaxQuest = 4
 
+
+
  startQuiz = () => {
     questionCounter = 0
     score = 0
@@ -67,7 +69,7 @@ const MaxQuest = 4
     document.getElementById('start-screen').classList.add('hide')
     timerObject = setInterval(function() {
         timer.innerText = timeCount
-        if (timeCount > 1) {
+        if (timeCount > 0) {
             timeCount--
         }
         else {
@@ -114,8 +116,17 @@ endQuiz = ( ) => {
  document.getElementById('questions') .classList.add('hide')
 }
 
+// $(document).ready(function() {
+//     $('.choices').hover(function() {
+//         $(this).css("background-color", "#563d7c");
+//     }, function() {
+//         $(this).css("background-color", "white");
+//     });
+// });
+
 startButtom.addEventListener('click', startQuiz) 
 choices1.addEventListener('click', acceptingAnswers)
 choices2.addEventListener('click', acceptingAnswers)
 choices3.addEventListener('click', acceptingAnswers)
 choices4.addEventListener('click', acceptingAnswers)
+
