@@ -24,7 +24,7 @@ let availableQuestions = []
 
 let questions = [
     {
-        questionsTitle: 'Commonly used JavaScript...',
+        questionsTitle: 'Commonly used data types DO NOT include:',
         choice1: 'String',
         choice2: 'Boolean',
         choice3: 'Alerts',
@@ -48,13 +48,21 @@ let questions = [
         answer: 4,
     },
     {
-        questionsTitle: 'tring values must be enclosed within ____ when being assigned to variables.',
+        questionsTitle: 'string values must be enclosed within ____ when being assigned to variables.',
         choice1: 'Commas',
         choice2: 'Curly brackets',
         choice3: 'Alerts',
         choice4: 'Numbers',
         answer: 1,
-    }
+    },
+    {
+    questionsTitle: 'A very useful tool used during development and debugging for printing content to the debugger is:',
+    choice1: 'JavaScript',
+    choice2: 'Terminal/bash',
+    choice3: 'For loops',
+    choice4: ' Console.log',
+    answer: 4,
+},
 ]
 
 const MaxQuest = 4
@@ -116,13 +124,7 @@ endQuiz = ( ) => {
  document.getElementById('questions') .classList.add('hide')
 }
 
-// $(document).ready(function() {
-//     $('.choices').hover(function() {
-//         $(this).css("background-color", "#563d7c");
-//     }, function() {
-//         $(this).css("background-color", "white");
-//     });
-// });
+
 
 startButtom.addEventListener('click', startQuiz) 
 choices1.addEventListener('click', acceptingAnswers)
