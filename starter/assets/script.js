@@ -32,7 +32,7 @@ let questions = [
         answer: 1,
     },
     {
-        questionsTitle: 'he conditions in an if / else statement is enclosed with ___.',
+        questionsTitle: 'The conditions in an if / else statement is enclosed with ___.',
         choice1: 'Quotes',
         choice2: 'Curly brackets',
         choice3: 'Parentheses',
@@ -64,6 +64,7 @@ let questions = [
     answer: 4,
 },
 ]
+console.log(questions);
 
 const MaxQuest = 4
 
@@ -87,6 +88,7 @@ const MaxQuest = 4
     getNewQuest()
 
 }
+
 
 getNewQuest = () => {
     questionsTitle.innerText = questions [questionCounter].questionsTitle
@@ -124,11 +126,15 @@ endQuiz = ( ) => {
  document.getElementById('questions') .classList.add('hide')
 }
 
-
-
 startButtom.addEventListener('click', startQuiz) 
 choices1.addEventListener('click', acceptingAnswers)
 choices2.addEventListener('click', acceptingAnswers)
 choices3.addEventListener('click', acceptingAnswers)
 choices4.addEventListener('click', acceptingAnswers)
+
+localStorage.setItem("questions", JSON.stringify(questions));
+
+console.log(score);
+
+
 
