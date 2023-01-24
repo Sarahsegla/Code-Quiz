@@ -2,10 +2,10 @@ var timer = document.querySelector('#time');
 var highScore = document.querySelector('.score');
 var startButtom = document.querySelector('#start');
 var questionsTitle = document.querySelector('#question-title');
-var choices1 = document.querySelector('#choices1');
-var choices2 = document.querySelector('#choices2');
-var choices3 = document.querySelector('#choices3');
-var choices4 = document.querySelector('#choices4');
+var choices1 = document.querySelector('#choices-1');
+var choices2 = document.querySelector('#choices-2');
+var choices3 = document.querySelector('#choices-3');
+var choices4 = document.querySelector('#choices-4');
 var finalScore = document.querySelector('#final-score');
 var initials = document.querySelector('#initials');
 var submit = document.querySelector('#submit');
@@ -15,10 +15,12 @@ var timeCount;
 
 
 let currentQuestions = {}
-let acceptingAnswers = true
+
 let score = 0
 let questionCounter = 0
 let availableQuestions = []
+
+
 
 let questions = [
     {
@@ -76,6 +78,25 @@ getNewQuest = () => {
         
     
 }
+acceptingAnswers = (event) => {
+    var idanswer = event.target.getAttribute('id').split("-")[1]
+    console.log(idanswer)
+    if (idanswer == questions [questionCounter].answer)
+    {
+        score = score + 10
+    }
+    else {
+
+    }
+    if (questionCounter < questions.length -1) {
+        questionCounter++ 
+        getNewQuest ()
+    }
+}
 
 
-startButtom.addEventListener('click', startQuiz)
+startButtom.addEventListener('click', startQuiz) 
+choices1.addEventListener('click', acceptingAnswers)
+choices2.addEventListener('click', acceptingAnswers)
+choices3.addEventListener('click', acceptingAnswers)
+choices4.addEventListener('click', acceptingAnswers)
