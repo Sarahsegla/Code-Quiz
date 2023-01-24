@@ -10,11 +10,11 @@ var finalScore = document.querySelector('#final-score');
 var initials = document.querySelector('#initials');
 var submit = document.querySelector('#submit');
 
-var timer;
-var timeCount;
+var timerObject;
+var timeCount = 50;
 
 
-let currentQuestions = {}
+let currentQuestions ;
 
 let score = 0
 let questionCounter = 0
@@ -65,6 +65,15 @@ const MaxQuest = 4
    
     document.getElementById('questions').classList.remove('hide')
     document.getElementById('start-screen').classList.add('hide')
+    timerObject = setInterval(function() {
+        timer.innerText = timeCount
+        if (timeCount > 1) {
+            timeCount--
+        }
+        else {
+            endQuiz()
+        }
+    },1000)
     getNewQuest()
 
 }
@@ -86,14 +95,24 @@ acceptingAnswers = (event) => {
         score = score + 10
     }
     else {
-
+        timeCount-= 5
     }
     if (questionCounter < questions.length -1) {
         questionCounter++ 
         getNewQuest ()
     }
+    else {
+        endQuiz()
+    }
+
 }
 
+endQuiz = ( ) => {
+    clearInterval(timerObject)
+    document.getElementById('end-screen') .classList.remove('hide') 
+
+ document.getElementById('questions') .classList.add('hide')
+}
 
 startButtom.addEventListener('click', startQuiz) 
 choices1.addEventListener('click', acceptingAnswers)
