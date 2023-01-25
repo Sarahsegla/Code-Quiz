@@ -137,4 +137,3 @@ localStorage.setItem("questions", JSON.stringify(questions));
 console.log(score);
 
 
-
